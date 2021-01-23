@@ -15,12 +15,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           repository: hajiuhajiu/jdsign1112
+          ref: master
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -36,9 +36,7 @@ jobs:
       - name: npm install
         run: |
           npm install
-            - name: npm install
-        run: |
-                npm install
+            
       - name: Set up Python 3.7
         uses: actions/setup-python@v2
         with:
@@ -49,8 +47,7 @@ jobs:
           python3 wait.py 
       - name: '运行jd_live'
         run: |
-
-          node jd_live.js
+         node jd_live.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
