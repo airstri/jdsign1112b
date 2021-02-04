@@ -1,16 +1,15 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_joy_reward1
+name: jd_joy_help
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '57 23,3,7,15 * * *'
+    - cron: '0 23,16 * * *'
   watch:
     types: started
-  repository_dispatch:
-    types: joy_reward
+
 jobs:
   build:
 
@@ -25,13 +24,13 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【宠汪汪积分兑换京豆】'
+      - name: '运行 【宠汪汪】b'
         run: |
-          node jd_joy_reward.js
+          node jd_joy_help.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JD_JOY_REWARD_NOTIFY: ${{ secrets.JD_JOY_REWARD_NOTIFY }}
+          JOY_FEED_COUNT: ${{ secrets.JOY_FEED_COUNT }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
@@ -39,4 +38,3 @@ jobs:
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
